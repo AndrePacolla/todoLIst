@@ -6,7 +6,7 @@ let myList = [];
 
 function getTask() {
   if (inputTask.value.length) {
-    myList.push({
+      myList.push({
       task: inputTask.value,
       complete: false,
     });
@@ -31,7 +31,6 @@ function showTask() {
   });
 
   ul.innerHTML = `${newList}`;
-  localStorage.setItem("lista", JSON.stringify(myList));
 }
 
 function completeTask(i) {
@@ -44,12 +43,5 @@ function deleteTask(i) {
   showTask();
 }
 
-function reloadTask() {
-  const tasklocalStorage = localStorage.getItem("lista");
-  myList = JSON.parse(tasklocalStorage);
-  showTask();
-}
-
-reloadTask();
 
 buttonTask.addEventListener("click", getTask);
